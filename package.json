@@ -1,0 +1,12 @@
+{
+  "name": "fox-n3pay-net",
+  "version": "1.0.0",
+  "description": "N3PAY PicoFOX website",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
