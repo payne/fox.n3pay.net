@@ -3,15 +3,13 @@ layout: base.njk
 title: N3PAY - PicoFOX
 ---
 
-<h1>N3PAY</h1>
-
-<p>N3PAY has a <a href="https://store.ai6ym.radio/pages/picofox">PicoFOX</a>.</p>
+<h1> Matt N3PAY's <a href="https://store.ai6ym.radio/pages/picofox">PicoFOX</a>.</p> </h1>
 
 <div id="status" class="status">
   <strong>Current Status:</strong> <span id="status-text">Loading...</span>
 </div>
 
-<div class="contact">
+<div id="contact" class="contact" style="display: none;">
   <h2>Contact</h2>
   <p>
     Email: <a href="mailto:Matt.N3PAY@gmail.com">Matt.N3PAY@gmail.com</a><br>
@@ -28,10 +26,14 @@ title: N3PAY - PicoFOX
       const response = await fetch('https://raw.githubusercontent.com/payne/fox1-location/refs/heads/main/fox1-location.json');
       const data = await response.json();
 
+      const contactEl = document.getElementById('contact');
+
       if (data.storage) {
         statusEl.className = 'status storage';
         statusTextEl.textContent = 'Storage drawer';
+        contactEl.style.display = 'none';
       } else {
+        contactEl.style.display = 'block';
         const deployedDate = new Date(data.timeLocationUpdated);
         const formattedDate = deployedDate.toLocaleDateString('en-US', {
           year: 'numeric',
